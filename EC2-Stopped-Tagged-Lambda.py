@@ -19,9 +19,9 @@ def lambda_handler(event, context):
     instances = ec2.instances.filter(Filters=filters)
     #locate all running instances
     RunningInstances = [instance.id for instance in instances]
-    print RunningInstances
+    print (RunningInstances)
     if len(RunningInstances) > 0:
         shuttingDown = ec2.instances.filter(InstanceIds=RunningInstances).stop()
-        print shuttingDown
+        print (shuttingDown)
     else:
-        print "Nothing to do"
+        print ("Nothing to do")
